@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/belajar-AngryBirds.unity
+    guid: 74fbf62e232d7894c8185c891107db28
+  - enabled: 1
+    path: Assets/Scenes/belajar-AngryBirds 1.unity
+    guid: 5a7231ba8aaea6449b31e276aa01ee40
   m_configObjects: {}
