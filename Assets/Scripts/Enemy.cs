@@ -41,4 +41,10 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    public void setHit()
+    {
+        _isHit = true;
+        Destroy(gameObject);
+    }
 }

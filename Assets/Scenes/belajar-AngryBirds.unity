@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70237dd3bf56bd14cb2bc2dc53e9467a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  Health: 20
 --- !u!58 &918124980
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1317,16 +1317,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605b5cdd52f3e1c48b16c2cba48b3122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slingShooter: {fileID: 984377726}
-  birds:
-  - {fileID: 708903847}
-  - {fileID: 184117554}
+  trailController: {fileID: 296352066}
+  SlingShooter: {fileID: 984377726}
+  Birds:
   - {fileID: 2054836017}
-  enemies:
+  - {fileID: 184117554}
+  - {fileID: 708903847}
+  Enemies:
   - {fileID: 1481649730}
   - {fileID: 918124979}
-  trailController: {fileID: 296352066}
-  tapCollider: {fileID: 1094390487}
+  TapCollider: {fileID: 1094390487}
 --- !u!61 &1094390487
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1826,12 +1826,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2054836016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b333d1027fec547be16eca33e46c9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a6433709118ae9499c9283fbcb4aabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   RigidBody: {fileID: 2054836019}
   Collider: {fileID: 2054836018}
+  explodeRadius: 1.38
+  force: 350
+  LayerToHit:
+    serializedVersion: 2
+    m_Bits: 256
+  explode: {fileID: 4001622621331347791, guid: 22af3da343522004fac1408658485fde, type: 3}
 --- !u!58 &2054836018
 CircleCollider2D:
   m_ObjectHideFlags: 0

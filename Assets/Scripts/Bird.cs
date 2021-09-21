@@ -44,13 +44,7 @@ public class Bird : MonoBehaviour
         }
     }
 
-    void OnDestroy()
-    {
-        if (_state == BirdState.Thrown || _state == BirdState.HitSomething)
-            OnBirdDestroyed();
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
+    public virtual void OnCollisionEnter2D(Collision2D col)
     {
         _state = BirdState.HitSomething;
     }
@@ -81,4 +75,11 @@ public class Bird : MonoBehaviour
     {
         //It has no skill to be shown off, poor bird
     }
+
+    void OnDestroy()
+    {
+        if (_state == BirdState.Thrown || _state == BirdState.HitSomething)
+            OnBirdDestroyed();
+    }
+
 }

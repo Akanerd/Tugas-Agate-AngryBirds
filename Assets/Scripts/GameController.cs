@@ -4,78 +4,86 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public SlingShooter slingShooter;
-    public List<Bird> birds;
-    public List<Enemy> enemies;
-    public TrailController trailController;
-    public BoxCollider2D tapCollider;
+    [SerializeField] private TrailController trailController;
+    public SlingShooter SlingShooter;
+    public List<Bird> Birds;
+    public List<Enemy> Enemies;
+    private Bird _shotBird;
+    public BoxCollider2D TapCollider;
 
-    private Bird shotBird;
-    private bool isGameEnded = false;
+    private bool _isGameEnded = false;
 
-    private void Start()
+    void Start()
     {
-        for (int i = 0; i < birds.Count; i++)
+        for (int i = 0; i < Birds.Count; i++)
         {
-            birds[i].OnBirdShot += AssignTrail;
-            birds[i].OnBirdDestroyed += ChangeBird;
+            Birds[i].OnBirdDestroyed += ChangeBird;
+            Birds[i].OnBirdShot += AssignTrail;
         }
 
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < Enemies.Count; i++)
         {
-            enemies[i].OnEnemyDestroyed += CheckGameEnd;
+            Enemies[i].OnEnemyDestroyed += CheckGameEnd;
         }
 
-        tapCollider.enabled = false;
-        slingShooter.InitiateBird(birds[0]);
-        shotBird = birds[0];
+        TapCollider.enabled = false;
+        SlingShooter.InitiateBird(Birds[0]);
+        _shotBird = Birds[0];
+    }
+
+    private void OnDestroy()
+    {
+        for (int i = 0; i < Birds.Count; i++)
+        {
+            Birds[i].OnBirdDestroyed -= ChangeBird;
+            Birds[i].OnBirdShot -= AssignTrail;
+        }
     }
 
     public void ChangeBird()
     {
-        tapCollider.enabled = false;
+        TapCollider.enabled = false;
 
-        if (isGameEnded) return;
+        if (_isGameEnded || Birds.Count <= 0) return;
 
-        birds.RemoveAt(0);
+        Birds.RemoveAt(0);
 
-        if (birds.Count > 0)
+        if (Birds.Count > 0)
         {
-            slingShooter.InitiateBird(birds[0]);
-            shotBird = birds[0];
+            SlingShooter.InitiateBird(Birds[0]);
+            _shotBird = Birds[0];
         }
     }
 
-    public void AssignTrail(Bird selectedBird)
+    public void AssignTrail(Bird bird)
     {
-        trailController.SetBird(selectedBird);
+        TapCollider.enabled = true;
+        trailController.SetBird(bird);
         StartCoroutine(trailController.SpawnTrail());
-        tapCollider.enabled = true;
     }
 
     public void CheckGameEnd(GameObject destroyedEnemy)
     {
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < Enemies.Count; i++)
         {
-            if (enemies[i].gameObject == destroyedEnemy)
+            if (Enemies[i].gameObject == destroyedEnemy)
             {
-                enemies.RemoveAt(i);
+                Enemies.RemoveAt(i);
                 break;
             }
         }
 
-        if (enemies.Count == 0)
+        if (Enemies.Count == 0)
         {
-            Debug.Log("SELAMAT KAMU MENANG!");
-            isGameEnded = true;
+            _isGameEnded = true;
         }
     }
 
-    private void OnMouseUp()
+    void OnMouseUp()
     {
-        if (shotBird != null)
+        if (_shotBird != null)
         {
-            shotBird.OnTap();
+            _shotBird.OnTap();
         }
     }
 }
