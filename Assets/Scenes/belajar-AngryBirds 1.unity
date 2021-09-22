@@ -656,6 +656,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment
       objectReference: {fileID: 0}
+    - target: {fileID: 4431414378756052300, guid: 3f60551be8ec56543829c00b8301f99b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431414378566978385, guid: 3f60551be8ec56543829c00b8301f99b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4431414379313203923, guid: 3f60551be8ec56543829c00b8301f99b,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -720,6 +730,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431414379036167773, guid: 3f60551be8ec56543829c00b8301f99b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431414380160866724, guid: 3f60551be8ec56543829c00b8301f99b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431414379632129311, guid: 3f60551be8ec56543829c00b8301f99b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431414380339085320, guid: 3f60551be8ec56543829c00b8301f99b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f60551be8ec56543829c00b8301f99b, type: 3}
@@ -1064,7 +1094,7 @@ GameObject:
   - component: {fileID: 724765883}
   - component: {fileID: 724765882}
   - component: {fileID: 724765881}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1282,7 +1312,7 @@ GameObject:
   - component: {fileID: 918124981}
   - component: {fileID: 918124980}
   - component: {fileID: 918124979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1565,8 +1595,8 @@ MonoBehaviour:
   trailController: {fileID: 296352066}
   SlingShooter: {fileID: 984377726}
   Birds:
-  - {fileID: 2054836017}
   - {fileID: 184117554}
+  - {fileID: 2054836017}
   - {fileID: 708903847}
   Enemies:
   - {fileID: 1481649730}
@@ -1811,7 +1841,7 @@ GameObject:
   - component: {fileID: 1481649728}
   - component: {fileID: 1481649727}
   - component: {fileID: 1481649730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2013,7 +2043,7 @@ GameObject:
   - component: {fileID: 1636839225}
   - component: {fileID: 1636839224}
   - component: {fileID: 1636839223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
