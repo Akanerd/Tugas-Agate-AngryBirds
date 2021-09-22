@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private TrailController trailController;
+    [SerializeField] private GameObject _panel;
+    [SerializeField] private Text _statusInfo;
     public SlingShooter SlingShooter;
     public List<Bird> Birds;
     public List<Enemy> Enemies;
     private Bird _shotBird;
     public BoxCollider2D TapCollider;
+    public Menu _menu;
 
     private bool _isGameEnded = false;
 
@@ -72,10 +77,21 @@ public class GameController : MonoBehaviour
                 break;
             }
         }
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // Retrieve the name of this scene.
+        string sceneName = currentScene.name;
 
         if (Enemies.Count == 0)
         {
             _isGameEnded = true;
+            _menu.scene_2();
+        }
+        if (sceneName == "belajar-AngryBirds 1" && Enemies.Count == 0)
+        {
+            _statusInfo.text = "You Win!";
+            _panel.gameObject.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 

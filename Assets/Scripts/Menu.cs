@@ -5,14 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public void Scene_1()
+
+    private IEnumerator WaitForSceneLoad()
     {
-        SceneManager.LoadScene("belajar-AngryBirds");
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("belajar-AngryBirds 1");
+
+    }
+    public void scene_2()
+    {
+        // Do your things, then:
+        StartCoroutine(WaitForSceneLoad());
+        // And done
     }
 
-    public void Scene_2()
+    public void Restart()
     {
-        SceneManager.LoadScene("belajar-AngryBirds 1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Exit()
